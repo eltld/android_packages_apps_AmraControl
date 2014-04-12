@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.regulus.amra.amracontrol"
+    android:versionCode="25"
+    android:versionName="0.3.0">
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="19" />
+
+    <!-- ACRA -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <!-- Boot Up -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- R/W -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Vibration -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- SuperUser -->
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <!--uses-permission android:name="android.permission.GET_TASKS"/-->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:name=".Application"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:debuggable="false"
+        android:hardwareAccelerated="true">
+        <activity
+            android:name=".activities.DummyLauncher"
+            android:enabled="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="org.regulus.amra.amracontrol.activities.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.PerformanceActivity"
+            android:label="@string/performance"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="org.regulus.amra.amracontrol.activities.PerformanceActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.stericson.roottoolstests.SanityCheckRootTools" />
+
+        <!-- Services -->
+        <service android:name=".services.TaskerService" />
+        <service android:name=".services.BootUpService" />
+
+        <!-- Broadcast Receivers -->
+        <receiver android:name=".receivers.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.SecretCodeReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+
+                <data
+                    android:host="13371"
+                    android:scheme="android_secret_code" />
+                <data
+                    android:host="13372"
+                    android:scheme="android_secret_code" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

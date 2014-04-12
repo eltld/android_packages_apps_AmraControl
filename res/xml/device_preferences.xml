@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Copyright (C) 2013 Alexander "Evisceration" Martinz
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="input_navbar"
+        android:title="@string/navbar_title">
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="navbar_force"
+            android:title="@string/navbar_force_title"
+            android:summary="@string/navbar_force_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="input_knockon"
+        android:title="@string/knockonoff_panel_title">
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="knockon_gesture_enable"
+            android:title="@string/knockon_enable_head"
+            android:summaryOn="@string/knockon_enable_summary_on"
+            android:summaryOff="@string/knockon_enable_summary_off"
+            android:enabled="true"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="input_others"
+        android:title="@string/general_others">
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="input_glove_mode"
+            android:title="@string/input_glove_mode_title"
+            android:summary="@string/input_glove_mode_summary" />
+
+        <org.regulus.amra.amracontrol.preferences.VibratorTuningPreference
+            android:key="vibrator_tuning"
+            android:title="@string/vibrator_tuning_title"
+            android:summary="@string/vibrator_tuning_summary_head"
+            android:dialogTitle="@string/vibrator_tuning_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="touchkey"
+        android:title="@string/touchkey_subcat_title">
+
+        <!-- Touchkey backlight -->
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="touchkey_light"
+            android:title="@string/touchkey_light_title_head"
+            android:summary="@string/touchkey_light_summary_head"
+            android:defaultValue="true" />
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="touchkey_bln"
+            android:title="@string/touchkey_bln_title_head"
+            android:summary="@string/touchkey_bln_summary_head"
+            android:defaultValue="true" />
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="keyboard_light"
+            android:title="@string/keyboard_light_title_head"
+            android:summary="@string/keyboard_light_summary_head"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="graphics"
+        android:title="@string/graphics">
+
+        <org.regulus.amra.amracontrol.preferences.CustomListPreference
+            android:key="panel_color_temperature"
+            android:title="@string/panel_color_temp_title_head"
+            android:summary="@string/panel_color_temp_summary_head"
+            android:entries="@array/panel_color_temp_entries"
+            android:entryValues="@array/panel_color_temp_entries_values"
+            android:defaultValue="2" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

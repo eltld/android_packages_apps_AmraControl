@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Copyright (C) 2013 - 2014 Alexander "Evisceration" Martinz
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amra="http://amra.org">
+
+    <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+        android:key="pref_force_highend_gfx"
+        android:title="@string/pref_force_highend_gfx_title"
+        android:summary="@string/pref_force_highend_gfx_summary" />
+
+    <PreferenceCategory
+        android:key="intelli_plug"
+        android:title="@string/intelli_plug">
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="intelli_plug_active"
+            android:title="@string/intelli_plug"
+            android:summaryOn="@string/intelli_plug_summary_on"
+            android:summaryOff="@string/intelli_plug_summary_off"
+            android:defaultValue="false" />
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="intelli_plug_eco"
+            android:title="@string/intelli_plug_eco_title"
+            android:summaryOn="@string/intelli_plug_eco_summary_on"
+            android:summaryOff="@string/intelli_plug_eco_summary_off"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="powersaving"
+        android:title="@string/powersaving">
+
+        <org.regulus.amra.amracontrol.preferences.CustomCheckBoxPreference
+            android:key="lcd_power_reduce"
+            android:title="@string/powersaving_lcd_title"
+            android:summaryOn="@string/powersaving_lcd_summary_on"
+            android:summaryOff="@string/powersaving_lcd_summary_off"
+            android:defaultValue="false" />
+
+        <org.regulus.amra.amracontrol.preferences.SeekBarPreference
+            android:key="sched_mc_power_savings"
+            android:title="@string/powersaving_sched_mc_title"
+            android:summary="@string/powersaving_sched_mc_summary"
+            android:defaultValue="0"
+            android:max="2"
+            amra:min="0"
+            amra:customStatus="powersaving_sched_mc_" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
+
